@@ -56,10 +56,10 @@ export default function TextForm(props) {
     
 return (
     <>
-    <div className="container">
+    <div className="container" style={{color: props.mode === 'light' ? 'black' : 'white'}}>
         <h1>{props.heading}</h1>
         <div className="mb-3">
-            <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" placeholder='Enter Text Here'></textarea>
+            <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode === 'light' ? '#ebe6e6' : 'light'}} id="myBox" rows="8" placeholder='Enter Text Here'></textarea>
         </div>
         <button className="btn btn-primary " onClick={handleUpClick}>Convert to Uppercase</button>
         <button className="btn btn-danger mx-2" onClick={handleLowClick}>Convert to Lowercase</button>
@@ -67,15 +67,15 @@ return (
         <button className="btn btn-success mx-2" onClick={handleCopy}>Copy</button>
         <button className="btn btn-success mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
     </div>
-    <div className="container my-3">
+    <div className="container my-3" style={{color: props.mode === 'light' ? 'black' : 'white'}}>
         <h2>Your Text Summary</h2>
         <p>{text.trim().length === 0 ? 0 : text.trim().split(/\s+/).length} words, {text.length} characters</p>
         <p>{text.trim().length === 0 ? 0 : (0.008 * text.split(" ").length)} minutes read</p>
         {/* <h2>Email present in Above text</h2> */}
         {/* <button className="btn btn-success " onClick={handleEmailClick}>Check Email</button> */}
         
-        {/* <h2>Preview</h2> */}
-        <p>{text}</p>
+        <h2>Preview</h2>
+        <p>{text.length>0?text:"Enter something in the textbox above to preview it here"}</p>
     </div>
     </>
 )
