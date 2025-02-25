@@ -26,25 +26,7 @@ function App() {
     }, 2000);
   }
 
-  const removeBodyClasses = () => {
-    document.body.classList.remove("bg-light");
-    document.body.classList.remove("bg-dark");
-    document.body.classList.remove("bg-primary");
-    document.body.classList.remove("bg-success");
-    document.body.classList.remove("bg-warning");
-    document.body.classList.remove("bg-danger");
-
-  }
-
-  let toggleMode = (cls) => {
-    if(cls)
-    {
-      removeBodyClasses();
-      console.log(cls);
-      document.body.classList.add("bg-"+cls);
-    }
-    else
-    {
+  let toggleMode = () => {
       if(mode === "light"){
       setMode("dark");
       document.body.style.backgroundColor = '#2b2e2e';
@@ -56,7 +38,6 @@ function App() {
         showAlert("Light mode has been enabled", "success");
         // document.title = "TextUtils - Light mode";
       }
-    }
   }
   return (
     <>
