@@ -26,17 +26,36 @@ function App() {
     }, 2000);
   }
 
-  let toggleMode = () => {
-    if(mode === "light"){
+  const removeBodyClasses = () => {
+    document.body.classList.remove("bg-light");
+    document.body.classList.remove("bg-dark");
+    document.body.classList.remove("bg-primary");
+    document.body.classList.remove("bg-success");
+    document.body.classList.remove("bg-warning");
+    document.body.classList.remove("bg-danger");
+
+  }
+
+  let toggleMode = (cls) => {
+    if(cls)
+    {
+      removeBodyClasses();
+      console.log(cls);
+      document.body.classList.add("bg-"+cls);
+    }
+    else
+    {
+      if(mode === "light"){
       setMode("dark");
-      document.body.style.backgroundColor = 'grey';
+      document.body.style.backgroundColor = '#2b2e2e';
       showAlert("Dark mode has been enabled", "success");
-      document.title = "TextUtils - Dark Mode";
-    }else{
-      setMode("light");
-      document.body.style.backgroundColor = 'white';
-      showAlert("Light mode has been enabled", "success");
-      document.title = "TextUtils - Light mode";
+      // document.title = "TextUtils - Dark Mode";
+      }else{
+        setMode("light");
+        document.body.style.backgroundColor = 'white';
+        showAlert("Light mode has been enabled", "success");
+        // document.title = "TextUtils - Light mode";
+      }
     }
   }
   return (
@@ -47,13 +66,14 @@ function App() {
     <div className="container my-3">
       <Routes>
       {/* /users --> component 1
-          /users/home --> component 2 */}
+          /users/home --> component 2  */}
           <Route exact path="/about"
-            element={<About />} />
-          <Route exact path="/" element={<TextForm showAlert = {showAlert} heading="Enter the text to analyze" mode={mode}/>}/>
+            element={<About mode={mode}/>} />
+          <Route exact path="/" element={<TextForm showAlert = {showAlert} heading="Try TextUtils - Word counter, Character counter" mode={mode}/>}/>
       </Routes>
     </div>
-    </Router>
+    </Router> 
+    
     </>
   );
 }
