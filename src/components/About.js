@@ -43,7 +43,7 @@ return (
             </h2>
             <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
             <div className="accordion-body">
-            Welcome to TextUtils, your go-to text manipulation tool designed to simplify and enhance the way you work with text. Whether you need to convert text case, remove extra spaces, count words & characters, or analyze readability, TextUtils has got you covered!
+            Welcome to TextModifier, your go-to text manipulation tool designed to simplify and enhance the way you work with text. Whether you need to convert text case, remove extra spaces, count words & characters, or analyze readability, TextUtils has got you covered!
             </div>
             </div>
         </div>

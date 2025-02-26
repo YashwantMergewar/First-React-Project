@@ -42,7 +42,7 @@ function App() {
   return (
     <>
     <Router>
-      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode}/>
+      <Navbar title="TextModifier" mode={mode} toggleMode={toggleMode}/>
       <Alert alert={alert}/>
     <div className="container my-3">
       <Routes>
@@ -50,7 +50,7 @@ function App() {
           /users/home --> component 2  */}
           <Route exact path="/about"
             element={<About mode={mode}/>} />
-          <Route exact path="/" element={<TextForm showAlert = {showAlert} heading="Try TextUtils - Word counter, Character counter" mode={mode}/>}/>
+          <Route exact path="/" element={<TextForm showAlert = {showAlert} heading="Try TextModifier - Word counter, Character counter" mode={mode}/>}/>
       </Routes>
     </div>
     </Router> 
